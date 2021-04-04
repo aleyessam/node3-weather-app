@@ -10,7 +10,8 @@ var geocode = require('./utils/geocode');
 
 var forecast = require('./utils/forecast');
 
-var app = express(); // Define paths for Express config
+var app = express();
+var port = process.env.PORT || 3000; // Define paths for Express config
 
 var publicDirectoryPath = path.join(__dirname, '../public');
 var viewsPath = path.join(__dirname, '../templates/views');
@@ -100,6 +101,6 @@ app.get('*', function (req, res) {
     errorMsg: 'My 404 page'
   });
 });
-app.listen(3000, function () {
-  console.log('Server is up on port 3000.');
+app.listen(port, function () {
+  console.log('Server is up on port ' + port);
 });
